@@ -1,0 +1,44 @@
+docker login registry.redhat.io
+Username: {REGISTRY-SERVICE-ACCOUNT-USERNAME}
+Password: {REGISTRY-SERVICE-ACCOUNT-PASSWORD}
+Login Succeeded!
+
+#Pull
+docker pull registry.redhat.io/datagrid/datagrid-8-rhel8:1.4-8.1698058010
+
+Digest: sha256:d522a20ca6909bd464f85967d8b86fe42b83f773478a80785f9a85a0cb87dfed
+Status: Downloaded newer image for registry.redhat.io/datagrid/datagrid-8-rhel8:1.4-8.1698058010
+registry.redhat.io/datagrid/datagrid-8-rhel8:1.4-8.1698058010
+
+#List Images
+docker images registry.redhat.io/datagrid/datagrid-8-rhel8
+
+REPOSITORY                                          TAG                    IMAGE ID       CREATED         SIZE
+registry.redhat.io/datagrid/datagrid-8-rhel8        1.4-8.1698058010       80bc50b2a3ec   4 weeks ago     479MB
+
+# Run Without User/Pwd
+docker run -it -p 11222:11222 --name=datagrid-container registry.redhat.io/datagrid/datagrid-8-rhel8:1.4-8.1698058010
+
+# Generated User: TocBKpGJ2Y
+# Generated Password: BCZ5NeLVjj
+
+
+#Run With User/Pwd
+docker run -e USER=TocBKpGJ2Y -e PASS=BCZ5NeLVjj -it -p 11222:11222 --name=datagrid-container registry.redhat.io/datagrid/datagrid-8-rhel8:1.4-8.1698058010
+
+docker stop datagrid-container
+docker restart datagrid-container
+docker rm datagrid-container
+docker container ls
+docker stats datagrid-container
+
+
+
+
+
+
+
+
+
+
+

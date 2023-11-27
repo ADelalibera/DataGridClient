@@ -1,0 +1,6 @@
+syntax = "proto2";
+
+message Greeting {
+   optional string name = 1;
+   optional string message = 2;
+}
